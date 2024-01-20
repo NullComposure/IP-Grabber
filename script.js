@@ -2,9 +2,9 @@
 const firebaseConfig = {
     apiKey: 'AIzaSyDbKvWxdKHnFwMBJZbV5lamDqntcZjPX4g',
     authDomain: 'ip-details-58368.firebaseapp.com',
-    projectId: 'Yip-details-58368',
+    projectId: 'ip-details-58368',
     storageBucket: 'ip-details-58368.appspot.com',
-    messagingSenderId: 'Y815552255425',
+    messagingSenderId: '815552255425',
     appId: 'G-W1B2WF0VVV'
   };
   
