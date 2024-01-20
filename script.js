@@ -1,9 +1,4 @@
-// Import Firebase modules
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-
-
-// Include your Firebase configuration here
+// Include Firebase modules
 const firebaseConfig = {
     apiKey: 'AIzaSyDbKvWxdKHnFwMBJZbV5lamDqntcZjPX4g',
     authDomain: 'ip-details-58368.firebaseapp.com',
@@ -11,13 +6,13 @@ const firebaseConfig = {
     storageBucket: 'ip-details-58368.appspot.com',
     messagingSenderId: '815552255425',
     appId: 'G-W1B2WF0VVV'
-  };
-  
-  // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the Firestore database
-const db = getFirestore(app);
+const db = firebase.firestore(app);
 
 document.addEventListener('DOMContentLoaded', function () {
     const apiUrl = 'https://ipapi.co/json/';
@@ -35,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             // Add the IP details to Firestore
-            addDoc(collection(db, 'ipInfo'), ipDetails)
+            db.collection('ipInfo').add(ipDetails)
                 .then(docRef => {
                     console.log('IP details added to Firestore with ID:', docRef.id);
                 })
