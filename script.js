@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+            const dateTimeISO = new Date().toISOString();
             const ipDetails = {
+                dateTime: dateTimeISO,
                 ipAddress: data.ip,
                 city: data.city,
                 region: data.region,
@@ -44,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(error => {
                     console.error('Error adding IP details to Firestore:', error);
                 });
-
+                
             // Update your HTML content with IP details if needed
             document.getElementById('ip-info').innerHTML = `
                 <strong>IP Address:</strong> ${ipDetails.ipAddress}<br>
